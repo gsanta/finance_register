@@ -1,3 +1,10 @@
 FinanceRegister.Router.map(function () {
-  // Add your routes here
+  
+  this.resource('products', function(){
+    this.resource('product', { path: '/:product_id' }, function(){
+      this.route('edit');
+    });
+    this.route('create');
+  });
+  
 });

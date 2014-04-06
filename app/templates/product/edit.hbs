@@ -1,0 +1,17 @@
+<h1>Product</h1>
+
+<div class="input-group">
+  {{input value=name class="form-control"}}
+</div>
+
+<div class="input-group">
+  {{input value=price class="form-control"}}
+</div>
+
+<div class="input-group">
+  {{input value=amount class="form-control"}}
+</div>
+
+<button {{action 'save'}} class="btn btn-default">Update</button>
+
+{{outlet}}
