@@ -1,0 +1,1 @@
+FinanceRegister.ApplicationAdapter = DS.FixtureAdapter;
