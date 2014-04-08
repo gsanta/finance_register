@@ -27,30 +27,23 @@ test("adding a new product", function(){
 
   click(".save");
   andThen(function() {
-     ok(find(".list-group-item-text:contains('Pepsi')").length, "New product name does not match");
-    // ok(find("a[rel=author]:contains('John Doe')").length, "A link to the author should display");
+     ok(find(".list-group-item-text:last .name:contains('Pepsi')").length, "New product name does not match");
+     ok(find(".list-group-item-text:last .price:contains(340)").length, "New product price does not match");
+     ok(find(".list-group-item-text:last .amount:contains(4)").length, "New product amount does not match");
   });
 });
 
-// module("FinanceRegister.ProductController", {
-//     setup: function () {
-//     	var store = FinanceRegister.__container__.lookup('store:main');
+test("changing a new product", function(){
+  visit("/products");
+  
+  click(".list-group-item-text:last .edit a");
+  andThen(function() {
+  	fillIn(".product-price", "345");
 
-//         Ember.run(this, function () {
-//             // We could also fetch a model from our fixtures.
-//             this.model = store.createRecord('product', {
-// 				name: "Pepsi",
-// 				price: "340",
-// 				amount: "1"
-// 		    });
+  	click(".save");
+  });
 
-//             this.controller = FinanceRegister.ProductsCreateController.create({ content: this.model });
-//         });
-//     }
-// });
-
-// test("can save a new product", function () {
-//     Ember.run(this, function () {
-//         this.controller.save();
-//     });
-// });
+  andThen(function() {
+  	ok(find(".list-group-item-text:last .price:contains(345)").length, "New product's price could not be changed");
+  });
+});

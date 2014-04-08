@@ -7,7 +7,7 @@ FinanceRegister.ProductsCreateController = Ember.ObjectController.extend({
       newProduct.save();
 
       // redirects to the user itself
-      this.transitionToRoute('product', newProduct);
+      this.transitionToRoute('/products', newProduct);
     }
   }
 });
