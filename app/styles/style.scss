@@ -1,7 +1,23 @@
 $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 @import "bootstrap-sass/lib/bootstrap";
 
-/* Put your CSS here */
+$primary-color: #DB8628;
+
+$primary-font-size: 16px;
+ /* Put your CSS here */
 html, body {
     margin: 30px 0;
+}
+
+body {
+	background: $primary-color; 
+	padding: 0 5px;
+}
+
+.nav-item {
+	margin-bottom: 10px;	
+}
+
+.input-item {
+	margin-bottom: 10px;
 }

@@ -1,13 +1,13 @@
 {
-  "name": "My App",
-  "description": "My elevator pitch goes here",
+  "name": "Finance Register",
+  "description": "Basic finance register application",
   "launch_path": "/index.html",
   "icons": {
-    "128": "/img/icon-128.png"
+    "256": "/images/9b6a189d.icon.png"
   },
   "developer": {
-    "name": "Your name or organization",
-    "url": "http://your-homepage-here.org"
+    "name": "gsanta",
+    "url": ""
   },
   "default_locale": "en"
 }
