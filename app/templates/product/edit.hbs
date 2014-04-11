@@ -1,11 +1,19 @@
 <h1>Product</h1>
 
+<div class="input-wrapper" {{bind-attr class="validationState::input-wrapper-error"}}>
 {{input value=name class="form-control product-name input-item" placeholder="Name of product"}}
+</div>
 
 {{input value=price class="form-control product-price input-item" placeholder="price"}}
 
 {{input value=amount class="form-control product-amount input-item" placeholder="amount"}}
 
 <button {{action 'save'}} class="btn btn-default btn-block save input-item">Save</button>
+
+{{#unless validationState}}
+	Field product name {{errors.name}}
+{{/unless}}
+
+
 
 {{outlet}}

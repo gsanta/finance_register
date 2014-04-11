@@ -1,9 +1,18 @@
 /*global Ember*/
-FinanceRegister.Product = DS.Model.extend({
+FinanceRegister.Product = DS.Model.extend(Ember.Validations.Mixin, {
     name: DS.attr('string'),
     price: DS.attr('number'),
     amount: DS.attr('number')
-  });
+});
+
+FinanceRegister.Product.reopen({
+  validations: {
+    name: {
+      presence: true,
+      length: { minimum: 5 }
+    }
+  }
+});
 
 // probably should be mixed-in...
 FinanceRegister.Product.reopen({
