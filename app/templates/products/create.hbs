@@ -1,0 +1,24 @@
+<h1>Product</h1>
+
+{{partial "partials/_product_form"}} 
+
+{{#unless validationState}}
+<ul>
+	{{#if errors.name}}
+	<li>Field product name {{errors.name}}</li>
+	{{/if}}
+	{{#if errors.price}}
+	<li>Field price {{errors.price}}</li>
+	{{/if}}
+</ul>
+{{/unless}}
+
+
+<div class="panel panel-default">
+	<div class="panel-body">
+		<button {{action 'save'}} class="btn btn-default btn-block save input-item">Save</button>
+		{{#link-to 'products' class="btn btn-danger btn-lg btn-block"}}Cancel{{/link-to}}
+	</div>
+</div>
+
+{{outlet}}

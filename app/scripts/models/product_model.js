@@ -2,7 +2,8 @@
 FinanceRegister.Product = DS.Model.extend(Ember.Validations.Mixin, {
     name: DS.attr('string'),
     price: DS.attr('number'),
-    amount: DS.attr('number')
+    amount: DS.attr('number'),
+    date: DS.attr('date')
 });
 
 FinanceRegister.Product.reopen({
@@ -10,6 +11,10 @@ FinanceRegister.Product.reopen({
     name: {
       presence: true,
       length: { minimum: 5 }
+    },
+    price: {
+      presence: true,
+      numericality: { greaterThan: 5 } 
     }
   }
 });

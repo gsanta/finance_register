@@ -13,6 +13,8 @@
   {{/each}}
 </table>
 
-{{#link-to 'product.edit' model class="product-edit"}}Change{{/link-to}}
+{{#link-to 'product.edit' model class="product-edit" class="btn btn-default btn-block"}}Change{{/link-to}}
+<button {{action "delete"}} class="btn btn-danger btn-block">Delete</button>
+<button {{action "cloneModel"}} class="btn btn-block">New product from this item</button>
 
 {{outlet}}

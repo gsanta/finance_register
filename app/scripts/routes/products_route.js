@@ -3,4 +3,4 @@ FinanceRegister.ProductsRoute = Ember.Route.extend({
     return this.get('store').find('product');
   }
 });
-
+ 

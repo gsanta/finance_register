@@ -1,4 +1,5 @@
-FinanceRegister.ProductsController = Ember.ObjectController.extend({
-  // Implement your controller here.
+FinanceRegister.ProductsController = Ember.ArrayController.extend({
+	sortProperties: ['name'],
+	sortAscending: false 
 });
 
