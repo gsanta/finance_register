@@ -1,17 +1,23 @@
 <h1>Products</h1>
 
-Összes kijelölése{{checkbox-component action="markAllProducts"}}
+<div class="panel panel-default panel-header-own">
+	<div class="panel-body">
+		{{checkbox-component action="checkAllProducts"}}
+		<button type="button" class="btn btn-danger">Delete marked products</button>
+	</div>
+</div>
 
-{{#each sortedProducts}}
-{{#link-to 'product.edit' this class="product-link"}}
+{{#each itemController="product"}} 
 <div class="panel panel-default">
 	<div class="panel-body">
+		{{input type='checkbox' checked=isChecked }}
 		<span class="date">{{format-date "LLL" this.date}}</span> | 
 		<span class="name">{{this.name}}</span> | 
 		<span class="price">{{this.price}}</span> | 
 		<span class="amount">{{this.amount}}</span>
-		<input type="checkbox"/> {{#unless checkedAllProducts}}checked="checked"{{/unless}}
-	</div>
+		{{#link-to 'product.edit' this class="btn btn-default product-link"}}Details{{/link-to}} 
+	</div> 
 </div>
-{{/link-to}}
 {{/each}}
+
+ 

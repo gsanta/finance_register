@@ -1,11 +1,15 @@
 FinanceRegister.ProductsIndexController = Ember.ArrayController.extend({
-
-	sortProperties: ['date:desc'],
-  	sortedProducts: Ember.computed.sort('model', 'sortProperties'), 
-  	checkedAllProducts: true,
+    itemController: 'product',
+ 	sortProperties: ['date'],
+ 	sortAscending: false,
+  	checkedAllProducts: false,
   	actions: {
-  		markAllProducts: function() {
-  			
-  		}
+  		checkAllProducts: function() {
+  			this.toggleProperty('checkedAllProducts');
+            var that = this;
+            this.forEach(function(product) {
+                product.set('isChecked',that.get('checkedAllProducts'))
+            });
+  		} 
   	}
 });  

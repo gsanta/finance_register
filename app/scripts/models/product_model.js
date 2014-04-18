@@ -3,7 +3,10 @@ FinanceRegister.Product = DS.Model.extend(Ember.Validations.Mixin, {
     name: DS.attr('string'),
     price: DS.attr('number'),
     amount: DS.attr('number'),
-    date: DS.attr('date')
+    date: DS.attr('date'),
+    checked: DS.attr('boolean', {
+      defaultValue: function() { return false; }
+    })
 });
 
 FinanceRegister.Product.reopen({
