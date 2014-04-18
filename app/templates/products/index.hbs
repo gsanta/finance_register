@@ -2,15 +2,15 @@
 
 <div class="panel panel-default panel-header-own">
 	<div class="panel-body">
-		{{checkbox-component action="checkAllProducts"}}
-		<button type="button" class="btn btn-danger">Delete marked products</button>
+		{{checkbox-component action="selectAllProducts"}}
+		<button type="button" class="btn btn-danger" {{action 'deleteSelectedProducts'}}>Delete marked products</button>
 	</div>
 </div>
 
 {{#each itemController="product"}} 
 <div class="panel panel-default">
 	<div class="panel-body">
-		{{input type='checkbox' checked=isChecked }}
+		{{input type='checkbox' checked=isSelected }}
 		<span class="date">{{format-date "LLL" this.date}}</span> | 
 		<span class="name">{{this.name}}</span> | 
 		<span class="price">{{this.price}}</span> | 

@@ -2,13 +2,22 @@ FinanceRegister.ProductsIndexController = Ember.ArrayController.extend({
     itemController: 'product',
  	sortProperties: ['date'],
  	sortAscending: false,
-  	checkedAllProducts: false,
+  	isAllProductsSelected: false,
   	actions: {
-  		checkAllProducts: function() {
-  			this.toggleProperty('checkedAllProducts');
+  		selectAllProducts: function() {
+  			this.toggleProperty('isAllProductsSelected');
             var that = this;
             this.forEach(function(product) {
-                product.set('isChecked',that.get('checkedAllProducts'))
+                product.set('isSelected',that.get('isAllProductsSelected'))
+            });
+  		},
+  		deleteSelectedProducts: function() {
+  			this.forEach(function(product) {
+                if( product.get('isSelected') === true ) {
+                	console.log(product.get('model').get("name"))
+                	product.get('model').destroyRecord();
+                }
+                
             });
   		} 
   	}
