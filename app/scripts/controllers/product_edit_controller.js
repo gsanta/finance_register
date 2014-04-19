@@ -1,6 +1,19 @@
 FinanceRegister.ProductEditController = Ember.ObjectController.extend({
   needs: 'product',
-  validationState: true,
+  //TODO: remove clone parts, put them into parent class
+  showValidationErrors: false,
+  isNameError: function() {
+    if( this.get('showValidationErrors') === true && this.get('errors.name').length > 0 ) { return true; }
+    return false;
+  }.property('errors.name','showValidationErrors'),
+  isPriceError: function() {
+    if( this.get('showValidationErrors') === true && this.get('errors.price').length > 0 ) { return true; }
+    return false;
+  }.property('errors.price','showValidationErrors'),
+  isAmountError: function() {
+    if( this.get('showValidationErrors') === true && this.get('errors.amount').length > 0 ) { return true; }
+    return false;
+  }.property('errors.amount','showValidationErrors'),
   actions: {
     save: function() {
       var product = this.get('model');
@@ -8,18 +21,14 @@ FinanceRegister.ProductEditController = Ember.ObjectController.extend({
       var that = this;
       product.validate().then(
         function() {
-          that.set("validationState", true);
-          console.log("valid: " + that.get("validationState"))
+          that.set("showValidationErrors", false);
 
           product.set("date",moment(product.get("date"))._d);
           product.save(); 
           that.transitionToRoute('products');
         }, 
         function() {
-          that.set("validationState", false);
-
-          console.log( "nem valid: " + that.get("validationState") );
-
+          that.set("showValidationErrors", true);
         }
       )
     },

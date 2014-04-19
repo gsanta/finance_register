@@ -16,7 +16,7 @@
 	</div>
 </div>  
 
-{{#unless validationState}}
+{{#if showValidationErrors}}
 <ul>
 	{{#if errors.name}}
 	<li>Field product name {{errors.name}}</li>
@@ -24,7 +24,10 @@
 	{{#if errors.price}}
 	<li>Field price {{errors.price}}</li>
 	{{/if}}
+	{{#if errors.amount}}
+	<li>Field amount {{errors.amount}}</li>
+	{{/if}}
 </ul>
-{{/unless}}
+{{/if}}
 
 {{outlet}}
