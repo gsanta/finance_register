@@ -12,12 +12,15 @@ FinanceRegister.Product = DS.Model.extend(Ember.Validations.Mixin, {
 FinanceRegister.Product.reopen({
   validations: {
     name: {
-      presence: true,
-      length: { minimum: 5 }
+      presence: true
     },
     price: {
       presence: true,
-      numericality: { greaterThan: 5 } 
+      numericality: true
+    },
+    amount: {
+      presence: true,
+      numericality: true
     }
   }
 });

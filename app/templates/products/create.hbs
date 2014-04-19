@@ -2,7 +2,7 @@
 
 {{partial "partials/_product_form"}} 
 
-{{#unless validationState}}
+{{#if showValidationErrors}}
 <ul>
 	{{#if errors.name}}
 	<li>Field product name {{errors.name}}</li>
@@ -10,14 +10,16 @@
 	{{#if errors.price}}
 	<li>Field price {{errors.price}}</li>
 	{{/if}}
+	{{#if errors.amount}}
+	<li>Field amount {{errors.amount}}</li>
+	{{/if}}
 </ul>
-{{/unless}}
-
+{{/if}}
 
 <div class="panel panel-default">
 	<div class="panel-body">
 		<button {{action 'save'}} class="btn btn-default btn-block save input-item">Save</button>
-		{{#link-to 'products' class="btn btn-danger btn-lg btn-block"}}Cancel{{/link-to}}
+		<button {{action 'cancel'}} class="btn btn-default btn-block input-item">Cancel</button>
 	</div>
 </div>
 

@@ -4,12 +4,8 @@ FinanceRegister.ProductsCreateRoute = Ember.Route.extend({
     //return Em.Object.create({});
     return this.store.createRecord('product');
   },
-
-  // in this case (the create route), we can reuse the user/edit template
-  // associated with the usersCreateController
-  // renderTemplate: function(){
-  //   this.render('product.edit', {
-  //     controller: 'productsCreate'
-  //   });
-  // }
+  setupController: function(controller, model) {
+    controller.set("showValidationErrors",false);
+    controller.set('model', model);
+  }
 });

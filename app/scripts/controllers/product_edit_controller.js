@@ -17,7 +17,6 @@ FinanceRegister.ProductEditController = Ember.ObjectController.extend({
         }, 
         function() {
           that.set("validationState", false);
-          //that.get("model").rollback();
 
           console.log( "nem valid: " + that.get("validationState") );
 
