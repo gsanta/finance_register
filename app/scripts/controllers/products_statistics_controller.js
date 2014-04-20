@@ -1,15 +1,15 @@
 FinanceRegister.ProductsStatisticsController = Ember.ObjectController.extend({
-
 	monthlyExpense: function() {
 		
 		var expenseArray = [];
 		var currentDate = new Date();
 
 		this.get('model').forEach( function(product) {
+			console.log("foreach run")
 			var date = new Date(product.get('date'));
 			var indexString = date.getFullYear() + "-" + date.getMonth();
 
-			if( isNaN( expenseArray[indexString] ) ) {
+			if( expenseArray[indexString] === undefined ) {
 				expenseArray[indexString] = ( product.get('price') * product.get('amount') );
 			} else {
 				expenseArray[indexString] += ( product.get('price') * product.get('amount') );
@@ -28,11 +28,11 @@ FinanceRegister.ProductsStatisticsController = Ember.ObjectController.extend({
 	        		date: new Date( dateParts[0], dateParts[1] ),
 	        		expense: expenseArray[key] 
 	        	} );
-	        }
+	        }  
 	    }
 
 		return resultArray;
-	}.property(),
+	}.property('@each'), 
 
 	fullExpense: function() {
 		var fullExpense = 0;
@@ -42,19 +42,21 @@ FinanceRegister.ProductsStatisticsController = Ember.ObjectController.extend({
 		})
 
 		return fullExpense;
-	}.property(),
+	}.property('@each'),
 
 	expensePerProduct: function() {
 		var productExpenseArray = []
 
 		this.get('model').forEach( function(product) {
 
-			if( isNaN( productExpenseArray[product.get('name')] ) ) {
+			if( productExpenseArray[product.get('name')] === undefined ) {
+
 				productExpenseArray[product.get('name')] = {
 					expense: ( product.get('price') * product.get('amount') ),
 					amount: product.get('amount')
 				}
 			} else {
+
 				productExpenseArray[product.get('name')].expense += ( product.get('price') * product.get('amount') );
 				productExpenseArray[product.get('name')].amount += product.get('amount');
 			}
@@ -75,5 +77,5 @@ FinanceRegister.ProductsStatisticsController = Ember.ObjectController.extend({
 	    }
 
 		return resultArray;
-	}.property()
+	}.property('@each')
 });

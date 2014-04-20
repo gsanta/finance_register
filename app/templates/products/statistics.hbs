@@ -1,19 +1,35 @@
-<h2>Full Expense</h2>
-{{fullExpense}}
+<div class="list-group">
+	<div class="statistic-item row list-group-item active">
+		<h2>Full Expense</h2>
+	</div>
+	<div class="statistic-item row list-group-item">
+		<div class="col-sm-4">{{fullExpense}}</div>
+	</div>
+</div>
 
-<h2>Monthly Expense</h2>
-{{#each monthlyExpense}}
-	{{format-date "LLL" this.date}} :
-	{{expense}}
-	<br>
-{{/each}}
+<div class="list-group">
+	<div class="statistic-item row list-group-item active">
+		<h2>Monthly Expense</h2>
+	</div>
+	{{#each monthlyExpense}}
+	<div class="statistic-item row list-group-item">
+		<div class="col-sm-4">{{format-date "LLL" this.date}}</div>
+		<div class="col-sm-4">{{expense}}</div>
+	</div>
+	{{/each}}
+</div>
 
-<h2>Expense per Product</h2>
-{{#each expensePerProduct}}
-	{{name}} :
-	{{expense}} :
-	{{amount}}
-	<br>
-{{/each}}
+<div class="list-group">
+	<div class="statistic-item row list-group-item active">
+		<h2>Expense per Product</h2>
+	</div>
+	{{#each expensePerProduct}}
+	<div class="statistic-item row list-group-item">
+		<div class="col-sm-4">{{name}}</div>
+		<div class="col-sm-4">{{expense}}</div>
+		<div class="col-sm-4">{{amount}}</div>
+	</div>
+	{{/each}}
+</div>
 
 
