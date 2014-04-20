@@ -1,0 +1,19 @@
+<h2>Full Expense</h2>
+{{fullExpense}}
+
+<h2>Monthly Expense</h2>
+{{#each monthlyExpense}}
+	{{format-date "LLL" this.date}} :
+	{{expense}}
+	<br>
+{{/each}}
+
+<h2>Expense per Product</h2>
+{{#each expensePerProduct}}
+	{{name}} :
+	{{expense}} :
+	{{amount}}
+	<br>
+{{/each}}
+
+
