@@ -8,7 +8,8 @@
     "bootstrap-sass": "~3.0.0",
     "ember-localstorage-adapter": "~0.2.0",
     "ember-validations-latest": "http://builds.dockyard.com.s3.amazonaws.com/ember-validations/ember-validations-latest.js",
-    "moment": "~2.6.0"
+    "moment": "~2.6.0",
+    "ember-i18n": "~1.6.3"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.1.2"

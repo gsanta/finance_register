@@ -1,6 +1,6 @@
 <div class="list-group">
 	<div class="statistic-item row list-group-item active">
-		<h2>Full Expense</h2>
+		<h2>{{t products.statistics.FullExpense}}</h2>
 	</div>
 	<div class="statistic-item row list-group-item">
 		<div class="col-sm-4">{{fullExpense}}</div>
@@ -16,6 +16,10 @@
 		<div class="col-sm-4">{{format-date "LLL" this.date}}</div>
 		<div class="col-sm-4">{{expense}}</div>
 	</div>
+	{{else}}
+		<div class="statistic-item row list-group-item">
+			You have no products yet
+		</div>
 	{{/each}}
 </div>
 
@@ -29,6 +33,10 @@
 		<div class="col-sm-4">{{expense}}</div>
 		<div class="col-sm-4">{{amount}}</div>
 	</div>
+	{{else}}
+		<div class="statistic-item row list-group-item">
+			You have no products yet
+		</div>
 	{{/each}}
 </div>
 

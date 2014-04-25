@@ -1,4 +1,15 @@
-finance_register
-================
+finance_register_ember
+========================
 
-A simple finance register app mainly for Firefox OS platform. The main purpose of it is to find a sufficient development workflow for app development to Firefox OS.
+The purpose of this project is to find a sufficient way to develop applications to firefox os.
+The application uses ember as the MVC framework, and Twitter Bootstrap Mobile for UI rendering.
+
+Installation and Running
+------------------------
+*npm install
+*bower install
+*grunt serve
+
+Running Tests
+-------------
+grunt test
